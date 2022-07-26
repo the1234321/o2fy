@@ -1,7 +1,5 @@
 package icefile
 
-import "fmt"
-
 type BlewFish struct {
 	BigEndian bool
 	bf_pbox   []uint
@@ -423,5 +421,5 @@ func (this *BlewFish) setKey(key uint) {
 		this.S[i+1] = uint32(data[1])
 	}
 
-	fmt.Println(this.P, "Pd")
+	// fmt.Println(this.P, "Pd")
 }

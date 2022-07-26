@@ -80,7 +80,7 @@ func (this *IceFile) decryptGroup(buffer []byte, key1 uint, key2 uint, v3Decrypt
 
 	var numArray []byte = block2
 
-	fmt.Println("block2.Length: ", len(block2), ", SecondPassThreshold: ", this.SecondPassThreshold)
+	// fmt.Println("block2.Length: ", len(block2), ", SecondPassThreshold: ", this.SecondPassThreshold)
 
 	if len(block2) <= this.SecondPassThreshold && !v3Decrypt {
 		newBlewFish2 := new(BlewFish)
@@ -114,7 +114,7 @@ func (this *IceFile) extractGroup(
 	// var inData []byte= !encrypt ? buffer : decryptGroup(buffer, groupOneTempKey, groupTwoTempKey, v3Decrypt);
 	var inData []byte
 
-	fmt.Println(header.compSize)
+	// fmt.Println(header.compSize)
 	if !encrypt {
 		inData = buffer
 	} else {
@@ -164,7 +164,7 @@ func decompressGroupNgs(inData []byte, bufferLength uint) []byte {
 
 func readHeaders(decryptedHeaderData []byte) []GroupHeader {
 
-	fmt.Println(decryptedHeaderData)
+	// fmt.Println(decryptedHeaderData)
 
 	groupHeaderArray := make([]GroupHeader, 2)
 

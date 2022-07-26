@@ -1,7 +1,6 @@
 package icefile
 
 import (
-	"fmt"
 	"os"
 )
 
@@ -34,7 +33,6 @@ func (iceV4 *IceV4File) IceV4FileNew1(inFile *os.File) {
 	iceV4.InitIceV4File()
 
 	var numArray [][]byte = iceV4.splitGroups(inFile)
-	fmt.Println(numArray[0])
 
 	iceV4.header = numArray[0]
 	iceV4.GroupOneFiles = splitGroup(numArray[1], iceV4.groupOneCount)
@@ -123,11 +121,9 @@ func (iceV4 *IceV4File) splitGroups(inFile *os.File) [][]byte {
 	numArray1[1] = make([]byte, 0)
 	numArray1[2] = make([]byte, 0)
 	// #if DEBUG
-	if num1 == 8 || num1 == 9 {
-		fmt.Println("NGS Ice detected")
-	}
-	// fmt.Println(num1)
-	// fmt.Println(uint(num1&1) > 0)
+	// if num1 == 8 || num1 == 9 {
+	// 	fmt.Println("NGS Ice detected")
+	// }
 	// #endif
 	if groupHeaderArray[0].decompSize > 0 {
 		numArray1[1] = iceV4.extractGroup(groupHeaderArray[0], inFile, uint(num1&1) > 0, blowfishKeys.groupOneBlowfish[0], blowfishKeys.groupOneBlowfish[1], num1 == 8 || num1 == 9, false)
